@@ -1,0 +1,7 @@
+本地库提交到github{{{1
+1. git push http://github.com/user/repo master //本地库提交到远程库的master分支中
+2. git remote add origin http://github.com/user/repo
+   //使得操作origin就相当于操作http://github.com/user/repo
+   git push origin master
+   git pull origin master
+   
