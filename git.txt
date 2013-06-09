@@ -4,4 +4,6 @@
    //使得操作origin就相当于操作http://github.com/user/repo
    git push origin master
    git pull origin master
-   
+  
+github delete repo{{{1
+https://help.github.com/articles/deleting-a-repository
