@@ -1,3 +1,39 @@
 C++11 Lambda函数{{{1
 http://blog.csdn.net/srzhz/article/details/7934652
 
+dynamic_cast{{{1
+    dynamic_cast < type-id > ( expression )
+    该运算符把expression转换成type-id类型的对象。Type-id必须是类的指针、类的引用或者void*；
+    如果type-id是类指针类型，那么expression也必须是一个指针，如果type-id是一个引用，那么expression也必须是一个引用。
+
+    downcast 类必须有虚函数 
+        如果基类指针或者引用确实指向一个派生类对象，则downcast是安全的，传回适当转型过的指针。
+        如果基类指针或者引用指向的是基类对象，则downcast是不安全的，返回空指针。
+
+    upcast 不需要有虚函数
+        upcast总是能成功。
+
+    class Base
+    {
+    public:
+        virtual void print() { cout << "base" << endl; }
+    };
+
+    class Child : public Base
+    {
+    public:
+        void print() { cout << "child" << endl; }
+    };
+
+    Base* pb1 = new Base;
+    Base* pb2 = new Child;
+    Child* pc = new Child;
+    
+    dynamic_cast<Base*>(pc); // upcast always succeed
+    dynamic_cast<Child*>(pb1); // unsafe return 0
+    dynamic_cast<Child*>(pb2); // safe
+
+    关于多态{{{2
+        static_cast<Base*>(pc)->print();  // output: child
+        dynamic_cast<Base*>(pc)->print(); // output: child
+        ((Base*)pc)->print();             // output: child
