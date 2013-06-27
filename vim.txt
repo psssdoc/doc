@@ -1,0 +1,6 @@
+cscope -- windows{{{1
+    win7 64bit 中cscope 64bit 32bit都可以用
+    download: https://code.google.com/p/cscope-win32/downloads/list
+    将cscope放到vim目录下，将vim目录添加到path环境变量中
+
+    :cscope add cscope.out出现e623错误：vimrc中cscope路径设置不对
